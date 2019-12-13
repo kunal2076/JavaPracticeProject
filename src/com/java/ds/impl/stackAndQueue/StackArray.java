@@ -1,4 +1,4 @@
-package com.ds.impl.stackAndQueue;
+package com.java.ds.impl.stackAndQueue;
 
 public class StackArray<T> {
 	
@@ -31,7 +31,14 @@ public class StackArray<T> {
 		return item;
 	}
 	
-	public void readStack() {
+	public T peek() {
+		if(!isStackEmpty()) {
+			return (T) stack[top];
+		}
+		return null;
+	}
+	
+	public void printStack() {
 		for(Object obj : stack) {
 			System.out.println(obj);
 		}

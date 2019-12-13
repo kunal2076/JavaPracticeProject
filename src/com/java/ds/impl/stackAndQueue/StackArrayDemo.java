@@ -1,4 +1,4 @@
-package com.ds.impl.stackAndQueue;
+package com.java.ds.impl.stackAndQueue;
 
 public class StackArrayDemo {
 
@@ -8,12 +8,15 @@ public class StackArrayDemo {
 		stackVar.push(2);
 		stackVar.push(4);
 		stackVar.push(8);
+		
+		System.out.println(stackVar.peek());
+		
 		stackVar.push(10);
 		stackVar.push(15);
 		stackVar.push(19);
-		System.out.println();
 		
-		stackVar.readStack();
+		System.out.print("\n");
+		stackVar.printStack();
 		System.out.println();
 		
 		while(!stackVar.isStackEmpty())

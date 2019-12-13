@@ -1,4 +1,4 @@
-package com.ds.impl.linkedlist;
+package com.java.ds.impl.linkedlist;
 
 public class DoublyLinkedList<T> {
 	
@@ -9,7 +9,7 @@ public class DoublyLinkedList<T> {
 	}
 	
 	public void addAtHead(Object value) {
-		DoublyLinkedListNode newNode = new DoublyLinkedListNode(value, null, null);
+		DoublyLinkedListNode newNode = new DoublyLinkedListNode(value);
 		if(head == null)
 			head = newNode;
 		else {
@@ -20,7 +20,7 @@ public class DoublyLinkedList<T> {
 	}	
 	
 	public void addAtTail(Object value) {
-		DoublyLinkedListNode newNode = new DoublyLinkedListNode(value, null, null);
+		DoublyLinkedListNode newNode = new DoublyLinkedListNode(value);
 		if(head == null)
 			head = newNode;
 		else {
@@ -56,8 +56,10 @@ public class DoublyLinkedList<T> {
 	public void printList() {
 		DoublyLinkedListNode temp = head;
 		while(temp != null) {
-			System.out.println((T)temp.value);
+			System.out.print((T)temp.value);
 			temp = temp.next;
+			
+			if(temp!=null) System.out.print(" --> ");
 		}
 		System.out.println("\n");
 	}

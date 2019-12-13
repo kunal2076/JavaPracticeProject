@@ -1,4 +1,4 @@
-package com.ds.impl.stackAndQueue;
+package com.java.ds.impl.stackAndQueue;
 
 public class QueueArrayDemo {
 
@@ -11,7 +11,9 @@ public class QueueArrayDemo {
 		queueVar.enQueue("Avinash");
 		queueVar.enQueue("Surekha");
 		queueVar.enQueue("Kunal");
-		System.out.println();
+		
+		queueVar.printQueue();
+		System.out.print("\n");
 		
 		while(!queueVar.isQueueEmpty()) {
 			queueVar.deQueue();
@@ -19,6 +21,7 @@ public class QueueArrayDemo {
 		System.out.println();
 		
 		queueVar.deQueue();
+		
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.ds.impl.array;
+package com.java.ds.impl.array;
 
 public class DynamicArrayDemo {
 

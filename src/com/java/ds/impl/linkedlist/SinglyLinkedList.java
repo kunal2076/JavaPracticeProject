@@ -1,4 +1,4 @@
-package com.ds.impl.linkedlist;
+package com.java.ds.impl.linkedlist;
 
 /**
  * @author Kunal Alshi
@@ -13,7 +13,7 @@ public class SinglyLinkedList<T> {
 	}
 	
 	public void addAtHead(Object value) {
-		SinglyLinkedListNode newNode = new SinglyLinkedListNode(value, null);
+		SinglyLinkedListNode newNode = new SinglyLinkedListNode(value);
 		if(head == null)
 			head = newNode;
 		else {
@@ -23,15 +23,33 @@ public class SinglyLinkedList<T> {
 	}	
 	
 	public void addAtTail(Object value) {
-		SinglyLinkedListNode newNode = new SinglyLinkedListNode(value, null);
+		SinglyLinkedListNode newNode = new SinglyLinkedListNode(value);
 		if(head == null)
 			head = newNode;
 		else {
 			SinglyLinkedListNode temp = head;
-			while (temp.next != null)
+			while (temp.next != null) {
 				temp = temp.next;
-			
+			}
 			temp.next = newNode;
+		}
+	}
+	
+	public void insertBefore(Object value, Object insertBefore) {
+		SinglyLinkedListNode newNode = new SinglyLinkedListNode(value);
+		SinglyLinkedListNode insertBeforeNode = new SinglyLinkedListNode(insertBefore); 
+		
+		if(head == insertBeforeNode) {
+			head = newNode;
+			head.next = insertBeforeNode;
+		}
+		else {
+			SinglyLinkedListNode temp = head;
+			while(temp.next.value != insertBeforeNode.value) {
+				temp = temp.next;
+			}
+			temp.next = newNode;
+			newNode.next = insertBeforeNode;
 		}
 	}
 
@@ -50,8 +68,10 @@ public class SinglyLinkedList<T> {
 	public void printList() {
 		SinglyLinkedListNode temp = head;
 		while(temp != null) {
-			System.out.println((T)temp.value);
+			System.out.print((T)temp.value);
 			temp = temp.next;
+			
+			if(temp != null) System.out.print(" --> ");
 		}
 		System.out.println("\n");
 	}

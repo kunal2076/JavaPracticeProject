@@ -1,4 +1,4 @@
-package com.ds.impl.hashing;
+package com.java.ds.impl.hashing;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -20,7 +20,7 @@ public class HashTableDemo {
 		hashTableArr.put(7, "New York");
 		System.out.println(hashTableArr.get(7));
 
-		int x = 123;;
+		int x = 123;
 		 Queue<Integer> q = new LinkedList<Integer>();
 	        int temp;
 	        while(x>0) {

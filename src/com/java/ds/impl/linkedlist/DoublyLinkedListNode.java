@@ -1,4 +1,4 @@
-package com.ds.impl.linkedlist;
+package com.java.ds.impl.linkedlist;
 
 /**
  * @author Kunal Alshi
@@ -13,6 +13,12 @@ public class DoublyLinkedListNode {
 		this.value = value;
 		this.prev = prev;
 		this.next = next;
+	}
+	
+	public DoublyLinkedListNode(Object value) {
+		this.value = value;
+		this.prev = null;
+		this.next = null;
 	}
 
 }

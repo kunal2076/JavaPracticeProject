@@ -10,10 +10,13 @@ public class SelectionSort {
 		System.out.println(Arrays.toString(inputArr));
 	}
 	
-	int[] selectionSort(int[] inputArr) {
+	void selectionSort(int[] inputArr) {
+		
 		for(int i=0; i<inputArr.length; i++) {
+			
 			int min = inputArr[i];
 			int minId = i;
+			
 			for(int j=i+1; j<inputArr.length; j++) {
 				if(inputArr[j] < min) {
 					min = inputArr[j];
@@ -23,8 +26,8 @@ public class SelectionSort {
 			int temp = inputArr[i];
 			inputArr[i] = min;
 			inputArr[minId] = temp;
+			
 		}
-		return inputArr;
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.ds.impl.hashing;
+package com.java.ds.impl.hashing;
 
 import java.util.Arrays;
 

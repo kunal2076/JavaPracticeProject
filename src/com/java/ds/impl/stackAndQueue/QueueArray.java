@@ -1,4 +1,4 @@
-package com.ds.impl.stackAndQueue;
+package com.java.ds.impl.stackAndQueue;
 
 public class QueueArray<T> {
 	
@@ -16,7 +16,7 @@ public class QueueArray<T> {
 	
 	public void enQueue(Object newItem) {
 		if(isQueueFull()) {
-			System.out.println("Queue is full, cannot enQueue");
+			System.out.println("Queue is full, cannot enQueue for value " +(T) newItem);
 			return;
 		}
 		last = last+1;
@@ -32,6 +32,8 @@ public class QueueArray<T> {
 		}
 		T item = (T) queue[last];
 		first = first + 1;
+		
+		printQueue();
 		return item;
 	}
 	
@@ -41,6 +43,16 @@ public class QueueArray<T> {
 	
 	public boolean isQueueEmpty() {
 		return (first==-1 || first>last);
+	}
+	
+	public void printQueue() {
+		System.out.print("Current queue is :: ");
+		for(int i=first; i<=last; i++) {
+			System.out.print(queue[i]);
+			if(i != last)
+				System.out.print(" - ");
+		}
+		System.out.print("\n");
 	}
 
 }

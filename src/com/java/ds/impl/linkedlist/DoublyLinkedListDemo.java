@@ -1,4 +1,4 @@
-package com.ds.impl.linkedlist;
+package com.java.ds.impl.linkedlist;
 
 public class DoublyLinkedListDemo {
 
