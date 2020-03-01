@@ -3,33 +3,34 @@ package com.java.algo.practice;
 import java.util.HashMap;
 import java.util.Map;
 
+// Find the number of pair of socks of the same size in the given array
 public class SockPairsFromArray {
 
 	public static void main(String[] args) {
 
-		int n = 9;
 		int[] ar = {10, 20, 20, 10, 10, 30, 50, 10, 20};
-		int count = 0;
+		int count = new SockPairsFromArray().findPairOfSocks(ar);
+		System.out.println(count);
 		
-		HashMap<Integer, Integer> map = new HashMap();
+	}
+	
+	int findPairOfSocks(int[] input) {
 		
-		for (int i=0; i<n; i++) {
-			if(map.containsKey(ar[i])) {
-				int x = map.get(ar[i]);
-				map.put(ar[i], x+1);
-			}
-			else {
-				map.put(ar[i], 1);
-			}
+		if(input == null || input.length <= 0) return -1;
+		
+		HashMap<Integer, Integer> map = new HashMap<>();
+		for (int i=0; i<input.length; i++) {
+			map.put(input[i], map.getOrDefault(input[i], 0) + 1);
 		}
+		
+		int count = 0;
 		for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-		    //System.out.println(entry.getKey() + "/" + entry.getValue());
 		    if(entry.getValue() >= 2) {
-		    	count = count + entry.getValue()/2;
+		    	count += entry.getValue()/2;
 		    }
 		}
-
-		System.out.println(count);
+		
+		return count;
 	}
 
 }

@@ -37,7 +37,7 @@ public class GetTop1000Files {
 						set.add(directory + "/" + name);
 					}
 					else {
-						String smallestFileInSet = Collections.min(set);
+						String smallestFileInSet = Collections.min(set); // How do we know that this file has the minimum size ? Set will contain filenames, not the size.
 						if(size > getSize(smallestFileInSet)) {
 							set.remove(smallestFileInSet);
 							set.add(directory + "/" + name);
@@ -50,5 +50,37 @@ public class GetTop1000Files {
 			}
 		}
 		return new ArrayList<String>(set);
+	}
+	
+	Map<String, Integer> map = new HashMap<>();
+	
+	List<String> getTop1000Files2(String directory) {
+
+		List<String> fileList = listDirectory(directory);
+		
+		if(fileList == null || fileList.size() <= 0) return new ArrayList<String>();
+		
+		for (String name : fileList) {
+			if (isFile(name)) {
+				int size = getSize(name);
+
+				if (map.size() <= 1000) {
+					map.put(directory + "/" + name, size);
+				} else {
+					int smallestSize = Collections.min(map.values());						// extra loop to get the smallest file size
+					for (Map.Entry<String, Integer> entry : map.entrySet()) {
+						if (entry.getValue() == smallestSize) {
+							map.remove(entry.getKey());
+							map.put(directory + "/" + name, size);
+						}
+					}
+				}
+
+			} else {
+				getTop1000Files2(name);
+			}
+		}
+
+		return new ArrayList<String>(map.keySet());
 	}
 }

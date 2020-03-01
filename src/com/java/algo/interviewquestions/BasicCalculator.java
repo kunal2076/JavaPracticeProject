@@ -27,7 +27,7 @@ public class BasicCalculator {
 				//System.out.println(num);
 			}
 			
-			if((!Character.isDigit(input.charAt(i)) &&' '!=input.charAt(i)) || i==input.length()-1) {
+			if((!Character.isDigit(input.charAt(i)) && ' '!=input.charAt(i)) || i==input.length()-1) {
 				if(sign == '+') {
 					stack.push(num);
 				}

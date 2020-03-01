@@ -1,21 +1,20 @@
-package com.java.algo.interviewquestions;
+package com.java.algo.practice.array;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class FindDuplicatesInArray {
 	
 	public static void main(String[] args) {
 		
 		int[] input = {2,3,8,2,3,9,7,8};
-		List<Integer> result = findDuplicates(input);
+		List<Integer> result = new FindDuplicatesInArray().findDuplicates(input);
 		
 		for(int dup : result) {
 			System.out.println(dup);
 		}
 	}
 	
-	static List<Integer> findDuplicates(int[] nums) {
+	/*static List<Integer> findDuplicates(int[] nums) {
 		int n = nums.length;
 		List<Integer> ans = new ArrayList<>();
 
@@ -35,6 +34,21 @@ public class FindDuplicatesInArray {
 				}
 			}
 		}
-		return ans;}
+		return ans;}*/
+	
+	List<Integer> findDuplicates(int[] nums) {
+		
+		Set<Integer> set = new HashSet<>();
+		List<Integer> list = new ArrayList<>();
+		for(int i=0; i<nums.length; i++) {
+			if(set.contains(nums[i])) {
+				list.add(nums[i]);
+			}
+			else {
+				set.add(nums[i]);
+			}
+		}
+		return list;
+	}
 
 }

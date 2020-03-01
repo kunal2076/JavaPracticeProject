@@ -1,4 +1,4 @@
-package com.java.algo.interviewquestions;
+package com.java.algo.practice.linkedlist;
 
 public class ListNode {
 	int val;

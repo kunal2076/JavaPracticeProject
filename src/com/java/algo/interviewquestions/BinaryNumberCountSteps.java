@@ -14,9 +14,9 @@ public class BinaryNumberCountSteps {
 
 	public static void main(String[] args) {
 		
-		//String input = "011100"; // Decimal equivalent = 28
+		String input = "011100"; // Decimal equivalent = 28
 		//String input = "100"; // Decimal equivalent = 4
-		String input = "11110100001001000000"; // Decimal equivalent = 1,000,000
+		//String input = "11110100001001000000"; // Decimal equivalent = 1,000,000
 		
 		int steps = new BinaryNumberCountSteps().getCountOfLettersToDelete(input);
 		

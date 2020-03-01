@@ -5,8 +5,8 @@ import java.util.HashMap;
 public class StringMakingAnagrams {
 
 	public static void main(String[] args) {
-		String a = "abcabc";
-		String b = "abcadbc";
+		String a = "abcabcxxx";
+		String b = "abcadbcyy";
 		int res = makeAnagrams(a,b); 
 		System.out.println(res);
 	}
@@ -17,13 +17,7 @@ public class StringMakingAnagrams {
 		int count=0;
 		
 		for(int i=0; i<a.length(); i++) {
-			if(map.get(a.charAt(i)) == null) {
-				map.put(a.charAt(i), 1);
-			}
-			else {
-				int curr = map.get(a.charAt(i));
-				map.put(a.charAt(i), ++curr);
-			}
+			map.put(a.charAt(i), map.getOrDefault(a.charAt(i), 0) + 1);
 		}
 		
 		for(int j=0; j<b.length(); j++) {

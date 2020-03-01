@@ -82,43 +82,40 @@ public class StudentCoursePairs {
 	}
 	
 	String findStudentCoursePairs(String[][] scPair) {
-		
-		Map<String, List<String>> map = new HashMap<String, List<String>>();
-		List<String> cList = new ArrayList<String>();
-		
-		for(int i=0; i<scPair.length; i++) {
-			cList = map.get(scPair[i][0]);
-			if(cList != null) {
+
+		Map<String, List<String>> map = new HashMap<>();
+		for (int i = 0; i < scPair.length; i++) {
+			List<String> cList = new ArrayList<>();
+			if (map.containsKey(scPair[i][0])) {
+				cList = map.get(scPair[i][0]);
 				cList.add(scPair[i][1]);
-			}
-			else {
-				cList = new ArrayList<String>();
+			} else {
 				cList.add(scPair[i][1]);
 			}
 			map.put(scPair[i][0], cList);
 		}
-		//System.out.println(map);
-		
-		Map<Set<String>, List<String>> outputMap = new HashMap<Set<String>, List<String>>();
-		
-		for(Map.Entry<String, List<String>> entry1 : map.entrySet()) {
-			for(Map.Entry<String, List<String>> entry2 : map.entrySet()) {
-				if(entry1.getKey() != entry2.getKey()) {
-					Set<String> setKey = new HashSet<String>();
-					List<String>l1 = entry1.getValue();
-					List<String>l2 = entry2.getValue();
-					List<String> tempList = new ArrayList<String>(l1);
-					tempList.retainAll(l2);
-					
-					setKey.add(entry1.getKey());
-					setKey.add(entry2.getKey());
-					
-					if(!outputMap.containsKey(setKey))
-						outputMap.put(setKey, tempList);
+		System.out.println(map);
+
+		Map<Set<String>, List<String>> outputMap = new HashMap<>();
+		for (Map.Entry<String, List<String>> e1 : map.entrySet()) {
+			for (Map.Entry<String, List<String>> e2 : map.entrySet()) {
+				if (!e1.getKey().equals(e2.getKey())) {
+					Set<String> set = new HashSet<>();
+					set.add(e1.getKey());
+					set.add(e2.getKey());
+
+					List<String> outList = new ArrayList<>();
+					for (String l1 : e1.getValue()) {
+						if (e2.getValue().contains(l1)) {
+							outList.add(l1);
+						}
+					}
+
+					outputMap.put(set, outList);
 				}
 			}
 		}
-		
+
 		System.out.println(outputMap.toString());
 		return outputMap.toString();
 	}

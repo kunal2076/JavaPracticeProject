@@ -3,12 +3,10 @@ package com.java.algo.interviewquestions;
 import java.util.*;
 
 public class PhoneWords {
+	
+	// Uber
 
 	public static void main(String[] args) {
-
-		/*
-		 * Enter your code here. Read input from STDIN. Print output to STDOUT
-		 */
 
 		Set<String> dictionary = new HashSet<>();
 		dictionary.add("bat");
@@ -18,19 +16,19 @@ public class PhoneWords {
 		dictionary.add("ocelot");
 
 		List<Integer> digits = new ArrayList<>();
-		digits.add(3);
-		digits.add(6);
-		digits.add(4);
+		digits.add(2);
+		digits.add(2);
+		digits.add(8);
 
 		List<String> output = new ArrayList<>();
 
-		phoneWords(digits, dictionary, output);
+		new PhoneWords().phoneWords(digits, dictionary, output);
 		System.out.println(output); // should have "BAT", "CAT"
 	}
 	
-	static void phoneWords(List<Integer> digits, Set<String> dictionary, List<String> output) {
+	void phoneWords(List<Integer> digits, Set<String> dictionary, List<String> output) {
 		
-		HashMap<Integer, char[]> refMap = new HashMap<Integer, char[]>();
+		Map<Integer, char[]> refMap = new HashMap<Integer, char[]>();
 		refMap.put(2,new char[]{'a','b','c'});
 		refMap.put(3,new char[]{'d','e','f'});
 		refMap.put(4,new char[]{'g','h','i'});
@@ -40,9 +38,10 @@ public class PhoneWords {
 		refMap.put(8,new char[]{'t','u','v'});
 		refMap.put(9,new char[]{'w','x','y','z'});
 		
+		Set<String> tempDictionary = new HashSet<>(dictionary);
 		for(int i=0; i<digits.size(); i++) {
 			char[] charArr = refMap.get(digits.get(i));
-			Iterator<String> it = dictionary.iterator();
+			Iterator<String> it = tempDictionary.iterator();
 			while(it.hasNext()) {
 				String s = it.next();
 				if(new String(charArr).indexOf(s.charAt(i)) == -1) {
@@ -51,7 +50,7 @@ public class PhoneWords {
 				//System.out.println(dictionary.toString());
 			}
 		}
-		output.addAll(dictionary);
+		output.addAll(tempDictionary);
 	}
         
 

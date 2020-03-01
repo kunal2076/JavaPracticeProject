@@ -1,4 +1,4 @@
-package com.java.algo.interviewquestions;
+package com.java.algo.practice.linkedlist;
 
 import java.io.BufferedReader;
 import java.io.IOException;

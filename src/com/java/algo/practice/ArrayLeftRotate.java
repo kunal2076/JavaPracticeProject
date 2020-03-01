@@ -5,10 +5,8 @@ public class ArrayLeftRotate {
 	// Complete the rotLeft function below.
 	static int[] rotLeft(int[] a, int d) {
 		
-		int[] temp = new int[a.length];
 		for(int i=0; i<d; i++) {
-			temp = a;
-			int first = temp[0];
+			int first = a[0];
 			for(int j=0; j<a.length-1; j++) {
 				a[j] = a[j+1];
 			}
